@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# bash export_timecourses.sh [subjectlist]
+#/mnt/stressdevlab/new_fear_pipeline/SubjectLists/FearLearning_Control_n70.txt
+
+subjectlist=$(cat $1)
+root=/mnt/stressdevlab/new_fear_pipeline
+dir=/mnt/stressdevlab/new_fear_pipeline/${subject}/session1/fearLearning/PPI_more/EVFiles
+
+
+
+
+for subject in subjectlist; do
+
+    cp ${dir}/FearLearning_CSplusNR_GT_CSminus.txt ${subject}_task.txt
+    cp ${dir}/ACC_bl_H-O_thr20_b_x_FearRevPM_Alln147_p05_CSMvCSP_FearLearning.txt ${subject}_acc.txt
+    cp ${dir}/Amygdala_lh_Harvard-Oxford_thr50_binarized_FearLearning.txt ${subject}_lh_amyg.txt
+    cp ${dir}/Amygdala_rh_Harvard-Oxford_thr50_binarized_FearLearning.txt ${subject}_rh_amyg.txt
+    cp ${dir}/Caudate_bl_Harvard-Oxford_thr50_binarized_FearLearning.txt ${subject}_bl_caudate.txt
+    cp ${dir}/Hippocampus_bl_Harvard-Oxford_thr50_binarized_FearLearning.txt ${subject}_bl_hipp.txt
+    cp ${dir}/Hippocampus_lh_Harvard-Oxford_thr50_binarized_FearLearning.txt ${subject}_lh_hipp.txt
+    cp ${dir}/Hippocampus_rh_Harvard-Oxford_thr50_binarized_FearLearning.txt ${subject}_rh_hipp.txt
+    cp ${dir}/Parahipp_post_bl_H-O_thr20_b_x_FearRevPM_Alln147_p05_CSMvCSP_FearLearning.txt ${subject}_bl_parahipppost.txt
+    cp ${dir}/Parahipp_post_rh_H-O_thr20_b_x_FearRevPM_Alln147_p05_CSMvCSP_FearLearning.txt ${subject}_rh_parahipppost.txt
+    cp ${dir}/PrecuneusPCC_VentralBlob_bl_H-O_thr20_b_x_FearRevPM_Alln147_p05_CSMvCSP_FearLearning.txt ${subject}_bl_pcc.txt
+    cp ${dir}/Thalamus_bl_Harvard-Oxford_thr50_binarized_FearLearning.txt ${subject}_bl_thalamus.txt
+
+done
